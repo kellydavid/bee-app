@@ -184,4 +184,36 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Filters', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var filters = [];
+
+  return {
+    newFilter: function(){
+      return {
+        id: filters.length,
+        name: "empty"
+      };
+    },
+    getNumFilters: function(){
+      return filters.length;
+    },
+    getAll: function(){
+      return filters;
+    },
+    all: function() {
+      var filterString = window.localStorage['filters'];
+      if (filterString) {
+        return angular.fromJson(filterString);
+      }
+      return [];
+    },
+    save: function(filters) {
+      window.localStorage['filters'] = angular.toJson(filters);
+    }
+  }
 });

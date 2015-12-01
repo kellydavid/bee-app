@@ -25,7 +25,9 @@ angular.module('starter.controllers', [])
 })
 
 // **** Analysis
-.controller('AnalysisCtrl', function($scope, $state) {
+.controller('AnalysisCtrl', function($scope, $state, Filters) {
+
+  $scope.filters = Filters.getAll();
 
   $scope.goToAnalysisSelect = function() {
       $state.go('tab.analysis-select');  
@@ -36,12 +38,28 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('AnalysisSelectCtrl', function($scope, $state, Locations, Bees, Contexts) {
+.controller('AnalysisSelectCtrl', function($scope, $state, Locations, Bees, Contexts, Filters) {
   $scope.locations = Locations.all();
   $scope.bees = Bees.all();
   $scope.contexts = Contexts.all();
+  $scope.filters = Filters.getAll();
+  $scope.selectedFilters = {};
 
   $scope.doneSelectFilters = function() {
+      // Add location filter
+      var filter = Filters.newFilter();
+      filter.name = $scope.selectedFilters.slocation;
+      if(filter.name != null) $scope.filters.push(filter);
+      // add bee species filter
+      filter = Filters.newFilter();
+      filter.name = $scope.selectedFilters.bee;
+      if(filter.name != null) $scope.filters.push(filter);
+      // add context filter
+      filter = Filters.newFilter();
+      filter.name = $scope.selectedFilters.context;
+      if(filter.name != null) $scope.filters.push(filter);
+
+      Filters.save($scope.filters);
       $state.go('tab.analysis');  
   }
 })

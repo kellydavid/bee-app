@@ -1,14 +1,15 @@
 <ion-view view-title="Analysis">
-  <ion-content class="padding">
-    <div class="list list-inset">
-      <div class="item item-divider">
-        Apply Filters
-      </div>
-      <div class="item">
-        Dublin
-      </div>
+<ion-content class="padding">
+<div class="list card">
+<div class="item item-divider">Filters</div>
+    <div ng-if="filters.length != 0">
+      <div class="item item-body" ng-repeat="filter in filters">{{filter.name}}</div>
     </div>
-    <button class="button button-icon icon ion-ios-plus-outline" ng-click="goToAnalysisSelect()"></button>
-  <button class="button button-balanced button-full" ng-click="goToAnalysisChoice()">Apply Filters</button>
-  </ion-content>
+    <div ng-if="filters.length == 0"> 
+      <div class="item item-body">No Filters Selected</div>
+    </div>
+  </div>
+<button class="button button-icon icon ion-ios-plus-outline" ng-click="goToAnalysisSelect()"></button>
+<button class="button button-balanced button-full" ng-click="goToAnalysisChoice()">Apply Filters</button>
+</ion-content>
 </ion-view>

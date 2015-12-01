@@ -5,7 +5,7 @@
     <div class="input-label">
       Location
     </div>
-    <select>
+    <select ng-model="selectedFilters.slocation">
       <option ng-repeat="location in locations">{{location.name}}</option>
     </select>
   </label>
@@ -16,7 +16,7 @@
     <div class="input-label">
       Species
     </div>
-    <select>
+    <select ng-model="selectedFilters.bee">
       <option ng-repeat="bee in bees">{{bee.name}}</option>
     </select>
   </label>
@@ -27,7 +27,7 @@
     <div class="input-label">
       Context
     </div>
-    <select>
+    <select ng-model="selectedFilters.context">
       <option ng-repeat="context in contexts">{{context.name}}</option>
     </select>
   </label>
