@@ -11,6 +11,10 @@ angular.module('starter.controllers', [])
   $scope.goToAnalysisSelect = function() {
       $state.go('tab.analysis-select');  
   }
+
+  $scope.goToAnalysisChoice = function() {
+      $state.go('tab.analysis-choice');  
+  }
 })
 
 .controller('AnalysisSelectCtrl', function($scope, $state) {
@@ -18,4 +22,6 @@ angular.module('starter.controllers', [])
   $scope.doneSelectFilters = function() {
       $state.go('tab.analysis');  
   }
-});
+})
+
+.controller('AnalysisChoiceCtrl', function($scope, $state) {});

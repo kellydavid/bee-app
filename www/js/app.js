@@ -88,6 +88,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AnalysisSelectCtrl'
       }
     }
+  })
+
+   .state('tab.analysis-choice', {
+    url: '/analysis-choice',
+    views: {
+      'analysis': {
+        templateUrl: 'templates/analysis-choice.html',
+        controller: 'AnalysisChoiceCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
