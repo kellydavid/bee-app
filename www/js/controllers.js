@@ -13,4 +13,9 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('AnalysisSelectCtrl', function($scope) {});
+.controller('AnalysisSelectCtrl', function($scope, $state) {
+
+  $scope.doneSelectFilters = function() {
+      $state.go('tab.analysis');  
+  }
+});
