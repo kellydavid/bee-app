@@ -6,4 +6,11 @@ angular.module('starter.controllers', [])
 
 .controller('ProfileCtrl', function($scope) {})
 
-.controller('AnalysisCtrl', function($scope) {});
+.controller('AnalysisCtrl', function($scope, $state) {
+
+  $scope.goToAnalysisSelect = function() {
+      $state.go('tab.analysis-select');  
+  }
+})
+
+.controller('AnalysisSelectCtrl', function($scope) {});
