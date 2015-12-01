@@ -7,27 +7,52 @@ angular.module('starter.services', [])
   var chats = [{
     id: 0,
     name: 'Ben Sparrow',
-    lastText: 'You on your way?',
+    lastText: '120000',
     face: 'img/ben.png'
   }, {
     id: 1,
     name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
+    lastText: '34000',
     face: 'img/max.png'
   }, {
     id: 2,
     name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
+    lastText: '32000',
     face: 'img/adam.jpg'
   }, {
     id: 3,
     name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
+    lastText: '27000',
     face: 'img/perry.png'
   }, {
-    id: 4,
+    id: 5,
     name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
+    lastText: '10000',
+    face: 'img/mike.png'
+  }, {
+    id: 6,
+    name: 'Tom Murphy',
+    lastText: '10000',
+    face: 'img/mike.png'
+  }, {
+    id: 7,
+    name: 'Conor Taylor',
+    lastText: '10000',
+    face: 'img/mike.png'
+  }, {
+    id: 8,
+    name: 'Eden Doyle',
+    lastText: '10000',
+    face: 'img/mike.png'
+  }, {
+    id: 9,
+    name: 'David Kelly',
+    lastText: '10000',
+    face: 'img/mike.png'
+  }, {
+    id: 10,
+    name: 'Eileen Dover',
+    lastText: '10000',
     face: 'img/mike.png'
   }];
 

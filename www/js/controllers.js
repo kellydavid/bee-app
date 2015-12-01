@@ -11,7 +11,10 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ProfileLeaderboardCtrl', function($scope) {})
+.controller('ProfileLeaderboardCtrl', function($scope, Chats) {
+
+  $scope.chats = Chats.all();
+})
 
 .controller('AnalysisCtrl', function($scope, $state) {
 
