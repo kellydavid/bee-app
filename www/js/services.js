@@ -32,23 +32,23 @@ angular.module('starter.services', [])
   }, {
     id: 6,
     name: 'Tom Murphy',
-    karma: 10000,
-    face: 'img/mike.png'
+    karma: 9001,
+    face: 'img/ben.png'
   }, {
     id: 7,
     name: 'Conor Taylor',
     karma: 10000,
-    face: 'img/mike.png'
+    face: 'img/adam.jpg'
   }, {
     id: 8,
     name: 'Eden Doyle',
     karma: 10000,
-    face: 'img/mike.png'
+    face: 'img/perry.png'
   }, {
     id: 9,
     name: 'David Kelly',
     karma: 10000,
-    face: 'img/mike.png'
+    face: 'img/max.png'
   }, {
     id: 10,
     name: 'Eileen Dover',
