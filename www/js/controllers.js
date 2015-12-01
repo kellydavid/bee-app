@@ -36,7 +36,10 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('AnalysisSelectCtrl', function($scope, $state) {
+.controller('AnalysisSelectCtrl', function($scope, $state, Locations, Bees, Contexts) {
+  $scope.locations = Locations.all();
+  $scope.bees = Bees.all();
+  $scope.contexts = Contexts.all();
 
   $scope.doneSelectFilters = function() {
       $state.go('tab.analysis');  

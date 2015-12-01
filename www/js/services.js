@@ -79,4 +79,109 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Locations', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var locations = [{
+    id: 0,
+    name: 'Dublin'
+  }, {
+    id: 1,
+    name: 'Leitrim'
+  }, {
+    id: 2,
+    name: 'Galway'
+  }, {
+    id: 3,
+    name: 'Limerick'
+  }];
+
+  return {
+    all: function() {
+      return locations;
+    },
+    get: function(locationId) {
+      for (var i = 0; i < locations.length; i++) {
+        if (locations[i].id === parseInt(locationId)) {
+          return locations[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
+.factory('Bees', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var bees = [{
+    id: 0,
+    name: 'Honey Bee'
+  }, {
+    id: 1,
+    name: 'Bumble Bee'
+  }, {
+    id: 2,
+    name: 'Solitary Bee'
+  }, {
+    id: 3,
+    name: 'Leaf Cutter'
+  }, {
+    id: 4,
+    name: 'Mason Bee'
+  }, {
+    id: 5,
+    name: 'Sweat Bee'
+  }, {
+    id: 6,
+    name: 'Yellow Faced Bee'
+  }];
+
+  return {
+    all: function() {
+      return bees;
+    },
+    get: function(beeId) {
+      for (var i = 0; i < bees.length; i++) {
+        if (bees[i].id === parseInt(beeId)) {
+          return bees[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
+.factory('Contexts', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var contexts = [{
+    id: 0,
+    name: 'On Flower'
+  }, {
+    id: 1,
+    name: 'On Grass'
+  }, {
+    id: 2,
+    name: 'Outside Hive'
+  }];
+
+  return {
+    all: function() {
+      return contexts;
+    },
+    get: function(contextId) {
+      for (var i = 0; i < contexts.length; i++) {
+        if (context[i].id === parseInt(contextId)) {
+          return contexts[i];
+        }
+      }
+      return null;
+    }
+  };
 });

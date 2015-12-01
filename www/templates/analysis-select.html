@@ -6,9 +6,7 @@
       Location
     </div>
     <select>
-      <option selected>Dublin</option>
-      <option>Leitrim</option>
-      <option>Galway</option>
+      <option ng-repeat="location in locations">{{location.name}}</option>
     </select>
   </label>
 </div>
@@ -19,9 +17,7 @@
       Species
     </div>
     <select>
-      <option>Honey Bee</option>
-      <option>Bumble Bee</option>
-      <option>Solitary Bee</option>
+      <option ng-repeat="bee in bees">{{bee.name}}</option>
     </select>
   </label>
 </div>
@@ -32,9 +28,7 @@
       Context
     </div>
     <select>
-      <option>On Flower</option>
-      <option>On Grass</option>
-      <option>Outside Hive</option>
+      <option ng-repeat="context in contexts">{{context.name}}</option>
     </select>
   </label>
 </div>
