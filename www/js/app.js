@@ -80,6 +80,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('tab.profile-leader', {
+    url: '/profile-leader/:leaderId',
+    views: {
+      'profile': {
+        templateUrl: 'templates/profile-leader.html',
+        controller: 'ProfileLeaderCtrl'
+      }
+    }
+  })
+
    .state('tab.analysis', {
     url: '/analysis',
     views: {

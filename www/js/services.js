@@ -7,7 +7,7 @@ angular.module('starter.services', [])
   var leaders = [{
     id: 0,
     name: 'Ben Sparrow',
-    karma: 120000,
+    karma: 120,
     face: 'img/ben.png'
   }, {
     id: 1,
@@ -60,11 +60,18 @@ angular.module('starter.services', [])
     all: function() {
       return leaders;
     },
+    allHighestKarma: function(){
+      // finish implementing
+      function sortByKarma(a, b){
+        return parseInt(b.karma, 10) - parseInt(a.karma, 10);
+      }
+      return leaders.sort(sortByKarma);
+    },
     remove: function(leader) {
       leaders.splice(leaders.indexOf(leader), 1);
     },
     get: function(leaderId) {
-      for (var i = 0; i < chats.length; i++) {
+      for (var i = 0; i < leaders.length; i++) {
         if (leaders[i].id === parseInt(leaderId)) {
           return leaders[i];
         }

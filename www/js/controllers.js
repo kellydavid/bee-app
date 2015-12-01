@@ -1,9 +1,12 @@
 angular.module('starter.controllers', [])
 
+// *** Tasks
 .controller('TasksCtrl', function($scope) {})
 
+// **** Sort
 .controller('SortCtrl', function($scope) {})
 
+// **** Profile
 .controller('ProfileCtrl', function($scope, $state) {
 
   $scope.goToLeaderboard = function() {
@@ -13,9 +16,15 @@ angular.module('starter.controllers', [])
 
 .controller('ProfileLeaderboardCtrl', function($scope, Leaderboard) {
 
-  $scope.leaders = Leaderboard.all();
+  $scope.leaders = Leaderboard.allHighestKarma();
 })
 
+.controller('ProfileLeaderCtrl', function($scope, $stateParams, Leaderboard) {
+
+  $scope.leader = Leaderboard.get($stateParams.leaderId);
+})
+
+// **** Analysis
 .controller('AnalysisCtrl', function($scope, $state) {
 
   $scope.goToAnalysisSelect = function() {

@@ -1,7 +1,7 @@
 <ion-view view-title="Leaderboard">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/profile-leader/{{leader.id}}">
         <img ng-src="{{leader.face}}">
         <h2>{{leader.name}}</h2>
         <p>Karma: {{leader.karma}}</p>
