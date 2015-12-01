@@ -4,7 +4,14 @@ angular.module('starter.controllers', [])
 
 .controller('SortCtrl', function($scope) {})
 
-.controller('ProfileCtrl', function($scope) {})
+.controller('ProfileCtrl', function($scope, $state) {
+
+  $scope.goToLeaderboard = function() {
+      $state.go('tab.profile-leaderboard');  
+  }
+})
+
+.controller('ProfileLeaderboardCtrl', function($scope) {})
 
 .controller('AnalysisCtrl', function($scope, $state) {
 
