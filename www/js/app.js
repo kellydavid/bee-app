@@ -50,6 +50,15 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
+  .state('tab.task', {
+    url: '/task/:id',
+    views: {
+      'tasks': {
+        templateUrl: 'templates/tasks-task.html',
+        controller: 'TaskCtrl'
+      }
+    }
+  })
   .state('tab.sort', {
       url: '/sort',
       views: {

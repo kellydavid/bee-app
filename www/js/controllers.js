@@ -1,7 +1,17 @@
 angular.module('starter.controllers', [])
 
 // *** Tasks
-.controller('TasksCtrl', function($scope) {})
+.controller('TasksCtrl', function($scope, Tasks) {
+  
+  $scope.tasks = Tasks.all();
+
+
+})
+
+.controller('TaskCtrl', function($scope, $stateParams, Tasks) {
+  $scope.task = Tasks.get($stateParams.id);
+})
+
 
 // **** Sort
 .controller('SortCtrl', function($scope) {})

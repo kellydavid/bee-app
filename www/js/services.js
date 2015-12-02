@@ -186,6 +186,72 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('Tasks', function(){
+  var tasks = [{
+    id: 0,
+    taskName: "Task1",
+    taskDescription: "Description",
+    face: 'img/ben.png'
+
+  }, 
+  {
+    id: 1,
+    taskName: "Task2",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 2, 
+    taskName: "Task3",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 3,
+    taskName: "Task4",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 4,
+    taskName: "Task5",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 5,
+    taskName: "Task6",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 6,
+    taskName: "Task7",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  },
+  {
+    id: 7,
+    taskName: "Task8",
+    taskDescription: "Description",
+    face: 'img/mike.png'
+  }];
+  return {
+      all: function() {
+        return tasks;
+      },
+      get: function(taskId) {
+        for (var i = 0; i < tasks.length; i++) {
+          if (tasks[i].id === parseInt(taskId)) {
+            return tasks[i];
+          }
+        }
+        return null;
+      }
+  };
+  
+})
+
 .factory('Filters', function() {
   // Might use a resource here that returns a JSON array
 
