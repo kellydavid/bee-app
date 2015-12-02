@@ -128,6 +128,16 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
         controller: 'AnalysisVisLineGraphCtrl'
       }
     }
+  })
+
+   .state('tab.analysis-vis-bg', {
+    url: '/analysis-vis-bg',
+    views: {
+      'analysis': {
+        templateUrl: 'templates/analysis-vis-bg.html',
+        controller: 'AnalysisVisBarGraphCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback

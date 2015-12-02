@@ -68,9 +68,22 @@ angular.module('starter.controllers', [])
   $scope.goToLineGraph = function(){
     $state.go('tab.analysis-vis-lg');
   }
+  $scope.goToBarGraph = function(){
+    $state.go('tab.analysis-vis-bg');
+  }
 })
 
 .controller('AnalysisVisLineGraphCtrl', function($scope, $state) {
+
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A', 'Series B'];
+    $scope.data = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+    ];
+})
+
+.controller('AnalysisVisBarGraphCtrl', function($scope, $state) {
 
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
     $scope.series = ['Series A', 'Series B'];
