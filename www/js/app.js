@@ -147,6 +147,16 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
         controller: 'AnalysisVisBarGraphCtrl'
       }
     }
+   })
+
+   .state('tab.sort-item', {
+       url: '/sort-item/:sortid',
+    views: {
+      'sort': {
+        templateUrl: 'templates/sort-item.html',
+        controller: 'sortItemCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback

@@ -101,5 +101,19 @@ angular.module('starter.controllers', [])
         [65, 59, 80, 81, 56, 55, 40],
         [28, 48, 40, 19, 86, 27, 90]
     ];
-});
+})
 
+.controller("sortCtrl", function($scope, $state) {
+    $scope.images = [];
+
+    $scope.loadImages = function() {
+        for(var i = 0; i < 100; i++) {
+            $scope.images.push({id: i, src: "http://placehold.it/50x50"});
+        }
+    }
+    $scope.clickGridItem = function($index) {
+        $state.go('tab.sort-item');
+    }
+})
+
+.controller("sortItemCtrl", function($scope, $state) {});
