@@ -103,17 +103,13 @@ angular.module('starter.controllers', [])
     ];
 })
 
-.controller("sortCtrl", function($scope, $state) {
-    $scope.images = [];
-
-    $scope.loadImages = function() {
-        for(var i = 0; i < 100; i++) {
-            $scope.images.push({id: i, src: "http://placehold.it/50x50"});
-        }
-    }
+.controller("sortCtrl", function($scope, $state, UnsortedBees) {
+    $scope.bees = UnsortedBees.all();
     $scope.clickGridItem = function($index) {
-        $state.go('tab.sort-item');
+        $state.go('tab.sort-item', {sortId: $index});
     }
 })
 
-.controller("sortItemCtrl", function($scope, $state) {});
+.controller('sortItemCtrl', function($scope, $stateParams, UnsortedBees) {
+    $scope.bee = UnsortedBees.get($stateParams.sortId);
+})

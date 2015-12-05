@@ -150,7 +150,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
    })
 
    .state('tab.sort-item', {
-       url: '/sort-item/:sortid',
+    url: '/sort-item/:sortId',
     views: {
       'sort': {
         templateUrl: 'templates/sort-item.html',

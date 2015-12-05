@@ -156,6 +156,43 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('UnsortedBees', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var bees = [{
+    id: 0,
+    thumb: 'img/bees/0-thumb.jpg'
+  },{
+    id: 1,
+    thumb: 'img/bees/1-thumb.jpg'
+  },{
+    id: 2,
+    thumb: 'img/bees/2-thumb.jpg'
+  },{
+    id: 3,
+    thumb: 'img/bees/3-thumb.jpg'
+  },{
+    id: 4,
+    thumb: 'img/bees/4-thumb.jpg'
+  }
+  ];
+
+  return {
+    all: function() {
+      return bees;
+    },
+    get: function(beeId) {
+      for (var i = 0; i < bees.length; i++) {
+        if (bees[i].id === parseInt(beeId)) {
+          return bees[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+
 .factory('Contexts', function() {
   // Might use a resource here that returns a JSON array
 
