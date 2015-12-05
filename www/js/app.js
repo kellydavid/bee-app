@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    localStorage.clear();
   });
 })
 

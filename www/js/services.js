@@ -384,15 +384,15 @@ angular.module('starter.services', [])
     getAll: function(){
       return tags;
     },
-    all: function() {
-        var tagString = window.localStorage['tags'];
+    all: function(idx) {
+        var tagString = window.localStorage['tags'+idx];
         if (tagString) {
             return angular.fromJson(tagString);
         }
         return [];
     },
-    save: function(filters) {
-      window.localStorage['tags'] = angular.toJson(tags);
+    save: function(tags, idx) {
+      window.localStorage['tags'+idx] = angular.toJson(tags);
     }
   }
 });
