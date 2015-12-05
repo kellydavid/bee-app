@@ -1,7 +1,7 @@
 <ion-view view-title="Sort">
 <ion-content ng-controller="sortCtrl" ng-init="loadImages()">
     <div class="row" ng-repeat="bee in bees" ng-if="$index % 3 === 0">
-        <div class="col col-33" ng-if="$index < bees.length" ng-click="clickGridItem($item)">
+        <div class="col col-33" ng-if="$index < bees.length" ng-click="clickGridItem($index)">
             <img ng-src="{{bees[$index].thumb}}" width="100%" />
         </div>
         <div class="col col-33" ng-if="$index + 1 < bees.length" ng-click="clickGridItem($index+1)">

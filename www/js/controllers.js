@@ -110,6 +110,15 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('sortItemCtrl', function($scope, $stateParams, UnsortedBees) {
+.controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees) {
     $scope.bee = UnsortedBees.get($stateParams.sortId);
+    $scope.clickAddButton = function() {
+        $state.go('tab.sort-add', {beeId: $stateParams.sortId});
+    }
 })
+
+.controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees) {
+    $scope.bee = UnsortedBees.get($stateParams.beeId);
+    console.log($stateParams.beeId);
+});
+

@@ -157,7 +157,17 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
         controller: 'sortItemCtrl'
       }
     }
-  });
+  })
+   
+   .state('tab.sort-add', {
+    url: '/sort-add/:beeId',
+   views: {
+       'sort': {
+           templateUrl:'templates/sort-add.html',
+           controller: 'sortAddCtrl'
+       }
+   }
+   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/tasks');
