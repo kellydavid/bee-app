@@ -3,13 +3,16 @@
     <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" zooming="true">
     <img ng-src="{{bee.img}}" style="width: 100%; height: 100%">
     </ion-scroll>
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
+    <div class="list card" ng-if="tags.length > 0" ng-repeat="tag in tags">
+        <div class="item item-divider">{{tag.category}}</div>
+        <div class="item item-body">
         <div>
-            Index = {{bee.thumb}} 
+            {{tag.tag}} 
         </div>
       </div>
+    </div>
+    <div ng-if="tags.length == 0">
+        <div class="item iten-divider">No metadata for this image</div>
     </div>
     <button class="button button-balanced button-full" ng-click="clickAddButton()">Add metadata</button>
   </ion-content>

@@ -1,12 +1,19 @@
 <ion-view view-title="{{bee.title}}">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-            Index = {{bee.thumb}} 
+<ion-content class="padding">
+<div class="list">
+    <label class="item item-input item-select">
+        <div class="input-label">
+            Category
         </div>
-      </div>
-    </div>
-  </ion-content>
+        <select ng-model="formData.category">
+            <option ng-repeat="category in categories">{{category}}</option>
+        </select>
+    </label>
+    <label class="item item-input">
+        <input type="text" ng-model="formData.text">
+    </label>
+
+    <button class="button button-balanced button-full" ng-click="clickAddButton()">Add</button>
+</div>
+</ion-content>
 </ion-view>

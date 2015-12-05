@@ -12,7 +12,6 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
@@ -150,6 +149,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
    })
 
    .state('tab.sort-item', {
+    cache: false,
     url: '/sort-item/:sortId',
     views: {
       'sort': {

@@ -110,15 +110,28 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees) {
+.controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees, Tags) {
     $scope.bee = UnsortedBees.get($stateParams.sortId);
+    $scope.tags = Tags.all();
+    console.log("sortItemCtrl");
+    console.log("tags.length = "+$scope.tags.length);
     $scope.clickAddButton = function() {
         $state.go('tab.sort-add', {beeId: $stateParams.sortId});
     }
 })
 
-.controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees) {
+.controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
     $scope.bee = UnsortedBees.get($stateParams.beeId);
-    console.log($stateParams.beeId);
+    $scope.categories = Categories.all();
+    $scope.formData = {};
+    $scope.tags = Tags.getAll();
+    $scope.clickAddButton = function() {
+        var newTag = Tags.newTag();
+        newTag.tag = $scope.formData.text;
+        newTag.category = $scope.formData.category;
+        $scope.tags.push(newTag);
+        Tags.save($scope.tags);
+        $scope.formData = {};
+    }
 });
 

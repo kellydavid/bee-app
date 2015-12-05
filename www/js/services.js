@@ -114,6 +114,19 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('Categories', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var categories = ['Species', 'Colour', 'Environment'];
+
+  return {
+    all: function() {
+      return categories;
+    }
+  };
+})
+
 .factory('Bees', function() {
   // Might use a resource here that returns a JSON array
 
@@ -351,6 +364,35 @@ angular.module('starter.services', [])
     },
     save: function(filters) {
       window.localStorage['filters'] = angular.toJson(filters);
+    }
+  }
+})
+
+.factory('Tags', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var tags = [];
+
+  return {
+    newTag: function(){
+      return {
+        category: "",
+        tag: ""
+      };
+    },
+    getAll: function(){
+      return tags;
+    },
+    all: function() {
+        var tagString = window.localStorage['tags'];
+        if (tagString) {
+            return angular.fromJson(tagString);
+        }
+        return [];
+    },
+    save: function(filters) {
+      window.localStorage['tags'] = angular.toJson(tags);
     }
   }
 });
