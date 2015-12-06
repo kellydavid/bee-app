@@ -86,7 +86,34 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
-
+  .state('tab.expertTasks', {
+    url: '/expertTasks',
+    cache: false,
+    views: {
+      'tasks': {
+        templateUrl: 'templates/expertTasks.html',
+        controller: 'TasksCtrl'
+      }
+    }
+  })
+ .state('tab.editTask', {
+    url: '/editTask/:id',
+    views: {
+      'tasks': {
+        templateUrl: 'templates/editTask.html',
+        controller: 'EditTaskCtrl'
+      }
+    }
+  })
+ .state('tab.newTask', {
+    url: '/newTask',
+    views: {
+      'tasks': {
+        templateUrl: 'templates/addTask.html',
+        controller: 'NewTaskCtrl'
+      }
+    }
+  })
   .state('tab.task', {
     url: '/task/:id',
     views: {

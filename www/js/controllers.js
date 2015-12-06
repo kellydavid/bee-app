@@ -5,11 +5,39 @@ angular.module('starter.controllers', [])
   
   $scope.tasks = Tasks.all();
 
-
 })
 
 .controller('TaskCtrl', function($scope, $stateParams, Tasks) {
   $scope.task = Tasks.get($stateParams.id);
+})
+
+.controller('EditTaskCtrl', function($scope, $state, $stateParams, Tasks) {
+  var task = Tasks.get($stateParams.id);
+  $scope.task = task;
+  $scope.formData = {}
+  $scope.formData.task = task;
+  $scope.formData.taskName = task.taskName;
+  $scope.formData.shortDesc = task.shortDescription;
+  $scope.formData.desc = task.taskDescription;
+  $scope.formData.deadline = task.deadline;
+
+  $scope.updateTask = function(id){
+    Tasks.update(id, $scope.formData.taskName, $scope.formData.shortDesc, $scope.formData.desc, $scope.formData.deadline);
+    $scope.tasks = Tasks.all();
+    $state.go('tab.expertTasks');
+  };
+  $scope.deleteTask = function(id){
+    Tasks.remove(id);
+    $scope.tasks = Tasks.all();
+    $state.go('tab.expertTasks');
+  };
+})
+.controller('NewTaskCtrl', function($scope, $state, $stateParams, Tasks) {
+
+  $scope.addTask = function(taskName, shortDesc, desc, deadline){
+    Tasks.insert(taskName, shortDesc, desc, deadline);
+    $state.go('tab.expertTasks');
+  }
 })
 
 
@@ -120,9 +148,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('loginCtrl', function($scope, $state, $stateParams) {
-  $scope.goToTasks = function(){
-    console.log("here");
-    $state.go('tab.tasks');
+
+  $scope.goToTasks = function(name){
+    if (name == "Eden"){
+      $state.go('tab.expertTasks')
+    } else {
+      $state.go('tab.tasks');
+    }
   }
 
 })

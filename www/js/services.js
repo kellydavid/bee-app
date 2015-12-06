@@ -271,74 +271,125 @@ angular.module('starter.services', [])
 })
 
 .factory('Tasks', function(){
-  var tasks = [{
+  var tasksDummy = [{
     id: 0,
-    taskName: "Beehive Research",
-    shortDescription: "Take Pictures of bees near their hive",
-    taskDescription: "We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.",
-    face: 'img/ben.png'
+    taskName: 'Beehive Research',
+    shortDescription: 'Take Pictures of bees near their hive',
+    taskDescription: 'We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.',
+    face: 'img/ben.png',
+    deadline: '19/11/21'
 
   }, 
   {
     id: 1,
-    taskName: "Task2",
-    shortDescription: "Take Pictures of bees near a car",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task2',
+    shortDescription: 'Take Pictures of bees near a car',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 2, 
-    taskName: "Task3",
-    shortDescription: "Take Pictures of bees near a lamp",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task3',
+    shortDescription: 'Take Pictures of bees near a lamp',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 3,
-    taskName: "Task4",
-    shortDescription: "Take Pictures of bees near some other place",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task4',
+    shortDescription: 'Take Pictures of bees near some other place',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 4,
-    taskName: "Task5",
-    shortDescription: "Take Pictures of bees near a different car",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task5',
+    shortDescription: 'Take Pictures of bees near a different car',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 5,
-    taskName: "Task6",
-    shortDescription: "Take Pictures of bees near around Dublin",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task6',
+    shortDescription: 'Take Pictures of bees near around Dublin',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 6,
-    taskName: "Task7",
-    shortDescription: "Take Pictures of bees near chocolate",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task7',
+    shortDescription: 'Take Pictures of bees near chocolate',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   },
   {
     id: 7,
-    taskName: "Task8",
-    shortDescription: "Oooooooooooh please take a picture of bees",
-    taskDescription: "Description",
-    face: 'img/mike.png'
+    taskName: 'Task8',
+    shortDescription: 'Oooooooooooh please take a picture of bees',
+    taskDescription: 'Description',
+    face: 'img/mike.png',
+    deadline: '19/11/21'
   }];
+  if (window.localStorage["tasks"] == null){
+    window.localStorage["tasks"] = angular.toJson(tasksDummy);
+  }
+  var tasks = angular.fromJson(window.localStorage["tasks"]);
   return {
       all: function() {
-        return tasks;
+        return angular.fromJson(window.localStorage["tasks"]);
       },
       get: function(taskId) {
+        //var tasks = angular.fromJson(window.localStorage["tasks"]);
+        
         for (var i = 0; i < tasks.length; i++) {
           if (tasks[i].id === parseInt(taskId)) {
             return tasks[i];
           }
         }
         return null;
+      },
+      update: function(taskId, taskName, shortDesc, desc, deadline){
+        for (var i = 0; i < tasks.length; i++){
+          if(tasks[i].id === parseInt(taskId)) {
+            console.log("i")
+            console.log(taskName);
+
+            tasks[i].taskName = taskName;
+            tasks[i]['shortDescription'] = shortDesc;
+            tasks[i]['taskDescription'] = desc;
+            tasks[i]['deadline'] = deadline;
+          }
+
+        }
+        window.localStorage["tasks"] = angular.toJson(tasks);
+      },
+      insert: function(taskName, shortDesc, desc, deadline){
+        //tasks = angular.fromJson(window.localStorage["tasks"]);
+        var maxId = 0;
+        for(var i = 0; i < tasks.length;i++){
+          if(tasks[i].id > maxId) maxId = tasks[i].id;
+        }
+
+        var taskDetails = {"id": maxId + 1, "taskName": taskName, "shortDescription": shortDesc, "taskDescription": desc, "deadline": deadline};
+        tasks.push(taskDetails);
+        window.localStorage["tasks"] = angular.toJson(tasks);
+      },
+      remove: function(taskId){
+        for(var i = 0; i < tasks.length; i++){
+          if(tasks[i].id === parseInt(taskId)) {
+            if(i > -1){
+              tasks.splice(i, 1);
+            }
+          }
+        }
+        console.log(tasks);
+        window.localStorage["tasks"] = angular.toJson(tasks);
       }
   };
   
