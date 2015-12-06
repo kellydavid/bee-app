@@ -5,10 +5,14 @@
                 <input placeholder="Search" type="search">
             </label>
     <ion-list>
-
+      <style type="text/css">
+div ion-item a.item-content{
+  padding-left: 20px !important;
+}
+      </style>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.id}}">
         <h1 style="float:left">{{task.id + 1}}.</h1>
-        <p style="padding-left:20px;padding-top:20px">{{task.shortDescription}}</p>
+        <p style="padding-left:20px;padding-top:18px">{{task.shortDescription}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
 

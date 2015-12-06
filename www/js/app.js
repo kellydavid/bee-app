@@ -42,11 +42,13 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
   .state('login', {
     url: '/login',
+    controller: 'loginCtrl',
     templateUrl: 'templates/loginPage.html'
   })
 
   .state('signup', {
     url: '/signup',
+    controller: 'loginCtrl',
     templateUrl: 'templates/signupPage.html'
   })
 

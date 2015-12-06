@@ -83,6 +83,7 @@ angular.module('starter.controllers', [])
   }
 })
 
+
 .controller('AnalysisVisLineGraphCtrl', function($scope, $state) {
 
     $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -118,7 +119,11 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('loginCtrl', function($scope, $stateParams) {
+.controller('loginCtrl', function($scope, $state, $stateParams) {
+  $scope.goToTasks = function(){
+    console.log("here");
+    $state.go('tab.tasks');
+  }
 
 })
 
