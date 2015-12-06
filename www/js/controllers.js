@@ -1,8 +1,16 @@
 angular.module('starter.controllers', [])
 
 // *** Tasks
-.controller('TasksCtrl', function($scope, Tasks) {
+.controller('TasksCtrl', function($scope, $state, Tasks) {
   $scope.tasks = Tasks.all();
+
+  $scope.goToNewTask = function(){
+    $state.go('tab.newTask');
+  }
+
+  $scope.goToEditTask = function(id){
+    $state.go('tab.editTask', {id:id})
+  }
 })
 
 .controller('TaskCtrl', function($scope, $stateParams, Tasks) {

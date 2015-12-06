@@ -1,26 +1,19 @@
 <ion-view view-title="Tasks">
-  <ion-content>
-  <label style="" class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input placeholder="Search" type="search">
-            </label>
+<ion-content>
 
-    <a href="#/tab/newTask" class="button button-balanced"> New Task </a>
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input placeholder="Search" type="search">
+</label>
+<button ng-click="goToNewTask()" class="button button-balanced"> New </button>
 
-    <ion-list>
-      <style type="text/css">
-div ion-item.tomCustom a.item-content{
-  padding-left: 20px !important;
-}
-      </style>
-      <ion-item class="tomCustom item-remove-animate item-icon-right" ng-repeat="task in tasks" type="item-text-wrap"  >
-        <a style="text-decoration:none;" href="#/tab/task/{{task.id}}">
-        <h1 style="float:left">{{task.id + 1}}.</h1>
-        <p style="padding-left:20px;padding-top:18px; width:250px;">{{task.taskName}}</p>
-        </a>
-        <a href="#/tab/editTask/{{task.id}}" class="icon ion-chevron-right icon-accessory button button-assertive">EDIT</a>
+<ion-list>
+<ion-item class="item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" >
+<a href="#/tab/task/{{task.id}}"><h3 style="float:left">{{task.id + 1}}. {{task.taskName}}</h3></a>
+<a ng-click="goToEditTask(task.id)" class="icon ion-chevron-right icon-accessory button button-assertive">EDIT</a>
+</ion-item>
+</ion-list>
 
-      </ion-item>
-    </ion-list>
-  </ion-content>
+</div>
+</ion-content>
 </ion-view>
