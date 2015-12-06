@@ -392,7 +392,6 @@ angular.module('starter.services', [])
         window.localStorage["tasks"] = angular.toJson(tasks);
       }
   };
-  
 })
 
 .factory('Filters', function() {

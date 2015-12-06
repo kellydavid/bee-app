@@ -11,11 +11,10 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.disableScroll(true);
-
-    }
-    if (window.StatusBar) {
+  if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+    cordova.plugins.Keyboard.disableScroll(true);
+  }
+  if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
@@ -32,7 +31,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -40,6 +39,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
   // Each tab has its own nav history stack:
 
+  // **** Login
   .state('login', {
     url: '/login',
     controller: 'loginCtrl',
@@ -52,10 +52,13 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     templateUrl: 'templates/signupPage.html'
   })
 
+
+  // **** Tasks
   .state('imageDescription', {
     url: '/imageDescription',
     templateUrl: 'templates/imageDescription.html'
   })
+
   .state('tab.imageDescription', {
     url: '/task/imageDescription',
     views: {
@@ -69,6 +72,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     url: '/imageSelect',
     templateUrl: 'templates/imageSelect.html'
   })
+
   .state('tab.imageSelect', {
     url: '/task/imageSelect',
     views: {
@@ -77,6 +81,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
+
   .state('tab.tasks', {
     url: '/tasks',
     views: {
@@ -86,6 +91,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
+
   .state('tab.expertTasks', {
     url: '/expertTasks',
     cache: false,
@@ -96,7 +102,8 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
- .state('tab.editTask', {
+
+  .state('tab.editTask', {
     url: '/editTask/:id',
     views: {
       'tasks': {
@@ -105,7 +112,8 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
- .state('tab.newTask', {
+
+  .state('tab.newTask', {
     url: '/newTask',
     views: {
       'tasks': {
@@ -114,6 +122,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
+
   .state('tab.task', {
     url: '/task/:id',
     views: {
@@ -123,16 +132,40 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
       }
     }
   })
-  .state('tab.sort', {
-      url: '/sort',
-      views: {
-        'sort': {
-          templateUrl: 'templates/sort.html',
-          controller: 'SortCtrl'
-        }
-      }
-    })
 
+  // **** Sort
+  .state('tab.sort', {
+    url: '/sort',
+    views: {
+      'sort': {
+        templateUrl: 'templates/sort.html',
+        controller: 'SortCtrl'
+      }
+    }
+  })
+
+  .state('tab.sort-item', {
+    cache: false,
+    url: '/sort-item/:sortId',
+    views: {
+      'sort': {
+        templateUrl: 'templates/sort-item.html',
+        controller: 'sortItemCtrl'
+      }
+    }
+  })
+
+  .state('tab.sort-add', {
+    url: '/sort-add/:beeId',
+    views: {
+     'sort': {
+       templateUrl:'templates/sort-add.html',
+       controller: 'sortAddCtrl'
+     }
+   }
+ })
+
+  // **** Profile
   .state('tab.profile', {
     url: '/profile',
     views: {
@@ -163,7 +196,8 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-   .state('tab.analysis', {
+  // **** Analysis 
+  .state('tab.analysis', {
     url: '/analysis',
     views: {
       'analysis': {
@@ -173,7 +207,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-   .state('tab.analysis-select', {
+  .state('tab.analysis-select', {
     url: '/analysis-select',
     views: {
       'analysis': {
@@ -183,7 +217,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-   .state('tab.analysis-choice', {
+  .state('tab.analysis-choice', {
     url: '/analysis-choice',
     views: {
       'analysis': {
@@ -193,7 +227,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-   .state('tab.analysis-vis-lg', {
+  .state('tab.analysis-vis-lg', {
     url: '/analysis-vis-lg',
     views: {
       'analysis': {
@@ -203,7 +237,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
-   .state('tab.analysis-vis-bg', {
+  .state('tab.analysis-vis-bg', {
     url: '/analysis-vis-bg',
     views: {
       'analysis': {
@@ -211,28 +245,7 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
         controller: 'AnalysisVisBarGraphCtrl'
       }
     }
-   })
-
-   .state('tab.sort-item', {
-    cache: false,
-    url: '/sort-item/:sortId',
-    views: {
-      'sort': {
-        templateUrl: 'templates/sort-item.html',
-        controller: 'sortItemCtrl'
-      }
-    }
-  })
-   
-   .state('tab.sort-add', {
-    url: '/sort-add/:beeId',
-   views: {
-       'sort': {
-           templateUrl:'templates/sort-add.html',
-           controller: 'sortAddCtrl'
-       }
-   }
-   });
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

@@ -2,9 +2,7 @@ angular.module('starter.controllers', [])
 
 // *** Tasks
 .controller('TasksCtrl', function($scope, Tasks) {
-  
   $scope.tasks = Tasks.all();
-
 })
 
 .controller('TaskCtrl', function($scope, $stateParams, Tasks) {
@@ -32,6 +30,7 @@ angular.module('starter.controllers', [])
     $state.go('tab.expertTasks');
   };
 })
+
 .controller('NewTaskCtrl', function($scope, $state, $stateParams, Tasks) {
 
   $scope.addTask = function(taskName, shortDesc, desc, deadline){
@@ -43,6 +42,36 @@ angular.module('starter.controllers', [])
 
 // **** Sort
 .controller('SortCtrl', function($scope) {})
+
+.controller("sortCtrl", function($scope, $state, UnsortedBees) {
+    $scope.bees = UnsortedBees.all();
+    $scope.clickGridItem = function($index) {
+        $state.go('tab.sort-item', {sortId: $index});
+    }
+})
+
+.controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees, Tags) {
+    $scope.bee = UnsortedBees.get($stateParams.sortId);
+    $scope.tags = Tags.all($stateParams.sortId);
+    $scope.clickAddButton = function() {
+        $state.go('tab.sort-add', {beeId: $stateParams.sortId});
+    }
+})
+
+.controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
+    $scope.bee = UnsortedBees.get($stateParams.beeId);
+    $scope.categories = Categories.all();
+    $scope.formData = {};
+    $scope.tags = Tags.all($stateParams.beeId);
+    $scope.clickAddButton = function() {
+        var newTag = Tags.newTag();
+        newTag.tag = $scope.formData.text;
+        newTag.category = $scope.formData.category;
+        $scope.tags.push(newTag);
+        Tags.save($scope.tags, $stateParams.beeId);
+        $scope.formData = {};
+    }
+})
 
 // **** Profile
 .controller('ProfileCtrl', function($scope, $state) {
@@ -132,21 +161,7 @@ angular.module('starter.controllers', [])
     ];
 })
 
-.controller("sortCtrl", function($scope, $state, UnsortedBees) {
-    $scope.bees = UnsortedBees.all();
-    $scope.clickGridItem = function($index) {
-        $state.go('tab.sort-item', {sortId: $index});
-    }
-})
-
-.controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees, Tags) {
-    $scope.bee = UnsortedBees.get($stateParams.sortId);
-    $scope.tags = Tags.all($stateParams.sortId);
-    $scope.clickAddButton = function() {
-        $state.go('tab.sort-add', {beeId: $stateParams.sortId});
-    }
-})
-
+// **** Login
 .controller('loginCtrl', function($scope, $state, $stateParams) {
 
   $scope.goToTasks = function(name){
@@ -157,20 +172,4 @@ angular.module('starter.controllers', [])
     }
   }
 
-})
-
-
-.controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
-    $scope.bee = UnsortedBees.get($stateParams.beeId);
-    $scope.categories = Categories.all();
-    $scope.formData = {};
-    $scope.tags = Tags.all($stateParams.beeId);
-    $scope.clickAddButton = function() {
-        var newTag = Tags.newTag();
-        newTag.tag = $scope.formData.text;
-        newTag.category = $scope.formData.category;
-        $scope.tags.push(newTag);
-        Tags.save($scope.tags, $stateParams.beeId);
-        $scope.formData = {};
-    }
 });
