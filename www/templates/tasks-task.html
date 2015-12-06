@@ -1,4 +1,5 @@
-<ion-view view-title="Task">
+<ion-view view-title="Task Description">
+<!--
 <ion-content>
 
 <div class="row">
@@ -16,4 +17,20 @@
 
 
 </ion-content>
+-->
+    <ion-content class="has-header" padding="'true'">
+        <h1 style="">{{task.taskName}}</h1>
+        <div style="">
+            <p>{{task.taskDescription}}</p>
+        </div>
+        <a style="text-decoration: none;"  href="/#/tab/task/imageSelect">
+        	<button style="" class="button button-stable button-block ">Take Photo</button>
+        </a>
+        <a style="text-decoration: none;" href="/#/tab/task/imageSelect">
+        	<button style="" class="button button-stable button-block ">Select Photo</button>
+        </a>
+    </ion-content>
 </ion-view>
+
+
+

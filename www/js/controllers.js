@@ -118,6 +118,11 @@ angular.module('starter.controllers', [])
     }
 })
 
+.controller('loginCtrl', function($scope, $stateParams) {
+
+})
+
+
 .controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
     $scope.bee = UnsortedBees.get($stateParams.beeId);
     $scope.categories = Categories.all();
@@ -132,4 +137,3 @@ angular.module('starter.controllers', [])
         $scope.formData = {};
     }
 });
-

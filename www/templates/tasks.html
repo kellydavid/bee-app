@@ -1,9 +1,14 @@
 <ion-view view-title="Tasks">
   <ion-content>
+  <label style="" class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input placeholder="Search" type="search">
+            </label>
     <ion-list>
+
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.id}}">
-        <h2>{{task.taskName}}</h2>
-        <p>{{task.taskDescription}}</p>
+        <h1 style="float:left">{{task.id + 1}}.</h1>
+        <p style="padding-left:20px;padding-top:20px">{{task.shortDescription}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
 

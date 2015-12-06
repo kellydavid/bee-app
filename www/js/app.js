@@ -40,6 +40,41 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
   // Each tab has its own nav history stack:
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/loginPage.html'
+  })
+
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signupPage.html'
+  })
+
+  .state('imageDescription', {
+    url: '/imageDescription',
+    templateUrl: 'templates/imageDescription.html'
+  })
+  .state('tab.imageDescription', {
+    url: '/task/imageDescription',
+    views: {
+      'tasks': {
+        templateUrl: 'templates/imageDescription.html'
+      }
+    }
+  })
+  
+  .state('imageSelect', {
+    url: '/imageSelect',
+    templateUrl: 'templates/imageSelect.html'
+  })
+  .state('tab.imageSelect', {
+    url: '/task/imageSelect',
+    views: {
+      'tasks': {
+        templateUrl: 'templates/imageSelect.html'
+      }
+    }
+  })
   .state('tab.tasks', {
     url: '/tasks',
     views: {
@@ -171,6 +206,6 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
    });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/tasks');
+  $urlRouterProvider.otherwise('/login');
 
 });

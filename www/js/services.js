@@ -273,50 +273,58 @@ angular.module('starter.services', [])
 .factory('Tasks', function(){
   var tasks = [{
     id: 0,
-    taskName: "Task1",
-    taskDescription: "Description",
+    taskName: "Beehive Research",
+    shortDescription: "Take Pictures of bees near their hive",
+    taskDescription: "We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.",
     face: 'img/ben.png'
 
   }, 
   {
     id: 1,
     taskName: "Task2",
+    shortDescription: "Take Pictures of bees near a car",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 2, 
     taskName: "Task3",
+    shortDescription: "Take Pictures of bees near a lamp",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 3,
     taskName: "Task4",
+    shortDescription: "Take Pictures of bees near some other place",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 4,
     taskName: "Task5",
+    shortDescription: "Take Pictures of bees near a different car",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 5,
     taskName: "Task6",
+    shortDescription: "Take Pictures of bees near around Dublin",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 6,
     taskName: "Task7",
+    shortDescription: "Take Pictures of bees near chocolate",
     taskDescription: "Description",
     face: 'img/mike.png'
   },
   {
     id: 7,
     taskName: "Task8",
+    shortDescription: "Oooooooooooh please take a picture of bees",
     taskDescription: "Description",
     face: 'img/mike.png'
   }];
