@@ -17,7 +17,7 @@
 
 <ion-list show-delete="false" can-swipe="true">
 <ion-item ng-repeat="task in tasks">
-{{task.id + 1}}. {{task.taskName}}
+<a ng-click="goToTask(task.id)">{{task.id + 1}}. {{task.taskName}}</a>
 <ion-option-button class="button-light icon button button-assertive ion-edit" ng-click="goToEditTask(task.id)" ng-if="expert == true"></ion-option-button>
 <!--<ion-option-button class="button-light icon ion-email"></ion-option-button>-->
 <!--<ion-option-button class="button-assertive icon ion-trash-a"></ion-option-button>-->
