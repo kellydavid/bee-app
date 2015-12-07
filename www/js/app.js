@@ -85,20 +85,10 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
   .state('tab.tasks', {
     url: '/tasks',
-    views: {
-      'tasks': {
-        templateUrl: 'templates/tasks.html',
-        controller: 'TasksCtrl'
-      }
-    }
-  })
-
-  .state('tab.expertTasks', {
-    url: '/expertTasks',
     cache: false,
     views: {
       'tasks': {
-        templateUrl: 'templates/expertTasks.html',
+        templateUrl: 'templates/tasks.html',
         controller: 'TasksCtrl'
       }
     }

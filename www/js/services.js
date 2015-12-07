@@ -453,4 +453,23 @@ angular.module('starter.services', [])
       window.localStorage['tags'+idx] = angular.toJson(tags);
     }
   }
+})
+
+.factory('Expert', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var expert = false;
+
+  return {
+    isExpert: function(){
+      if(expert)
+        return true;
+      else
+        return false;
+    },
+    setExpert: function(valExpert){
+      expert = valExpert;
+    }
+  }
 });

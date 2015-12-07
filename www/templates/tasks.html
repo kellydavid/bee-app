@@ -1,22 +1,22 @@
 <ion-view view-title="Tasks">
-  <ion-content>
-  <label style="" class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input placeholder="Search" type="search">
-            </label>
-    <ion-list>
-      <style type="text/css">
-div ion-item.tomCustom a.item-content{
-  padding-left: 20px !important;
-}
-      </style>
-      <ion-item class="tomCustom item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.id}}">
-        <h1 style="float:left">{{task.id + 1}}.</h1>
-        <p style="padding-left:20px;padding-top:18px">{{task.taskName}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+<ion-content>
 
+<label class="item item-input">
+  <i class="icon ion-search placeholder-icon"></i>
+  <input placeholder="Search" type="search">
+</label>
+<div ng-if="expert == true">
+	<button ng-click="goToNewTask()" class="button button-balanced"> New </button>
+</div>
 
-      </ion-item>
-    </ion-list>
-  </ion-content>
+<ion-list>
+<ion-item class="item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" >
+<a href="#/tab/task/{{task.id}}"><h2 style="float:left">{{task.id + 1}}. {{task.taskName}}</h2></a>
+<div ng-if="expert == true">
+	<a ng-click="goToEditTask(task.id)" class="icon ion-chevron-right icon-accessory button button-assertive">EDIT</a>
+</div>
+</ion-item>
+</ion-list>
+
+</ion-content>
 </ion-view>

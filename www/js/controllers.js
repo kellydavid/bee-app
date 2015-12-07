@@ -1,9 +1,10 @@
 angular.module('starter.controllers', [])
 
 // *** Tasks
-.controller('TasksCtrl', function($scope, $state, Tasks) {
+.controller('TasksCtrl', function($scope, $state, Tasks, Expert) {
   $scope.tasks = Tasks.all();
-
+  $scope.expert = Expert.isExpert();
+  
   $scope.goToNewTask = function(){
     $state.go('tab.newTask');
   }
@@ -170,14 +171,15 @@ angular.module('starter.controllers', [])
 })
 
 // **** Login
-.controller('loginCtrl', function($scope, $state, $stateParams) {
+.controller('loginCtrl', function($scope, $state, $stateParams, Expert) {
 
   $scope.goToTasks = function(name){
     if (name == "Eden"){
-      $state.go('tab.expertTasks')
+      Expert.setExpert(true);
     } else {
-      $state.go('tab.tasks');
+      Expert.setExpert(false);
     }
+    $state.go('tab.tasks');
   }
 
 });
