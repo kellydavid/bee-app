@@ -92,6 +92,8 @@ angular.module('starter.controllers', [])
 .controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
     $scope.bee = UnsortedBees.get($stateParams.beeId);
     $scope.categories = Categories.all();
+    $scope.numAdded = 0;
+    $scope.numAddedText = "";
     $scope.formData = {};
     $scope.tags = Tags.all($stateParams.beeId);
     $scope.clickAddButton = function() {
@@ -101,6 +103,12 @@ angular.module('starter.controllers', [])
         $scope.tags.push(newTag);
         Tags.save($scope.tags, $stateParams.beeId);
         $scope.formData = {};
+        $scope.numAdded += 1;
+        if ($scope.numAdded == 1) {
+            $scope.numAddedText = "1 category added";
+        } else {
+            $scope.numAddedText = $scope.numAdded+" categories added";
+        }
     }
 })
 
@@ -205,3 +213,4 @@ angular.module('starter.controllers', [])
   }
 
 });
+
