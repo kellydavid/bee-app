@@ -1,33 +1,26 @@
 <ion-view view-title="Tasks">
 
 <ion-nav-bar>
-<ion-nav-buttons side="left">
-      <div ng-if="expert == true">
-		<button ng-click="clickedEdit()" class="button button-assertive">
-		<div ng-if="editMode == true">Done Editing</div><div ng-if="editMode == false">Edit</div>
-		</button>
-		</div>
-</ion-nav-buttons>
 <ion-nav-buttons side="right">
-      <div ng-if="expert == true">
-		<button ng-click="goToNewTask()" class="button button-positive">New</button>
-		</div>
+<div ng-if="expert == true">
+	<button ng-click="goToNewTask()" class="button button-positive">New</button>
+</div>
 </ion-nav-buttons>
 </ion-nav-bar>
 
 <ion-content>
 
 <label class="item item-input">
-  <i class="icon ion-search placeholder-icon"></i>
-  <input placeholder="Search" type="search">
+	<i class="icon ion-search placeholder-icon"></i>
+	<input placeholder="Search" type="search">
 </label>
 
-<ion-list>
-<ion-item class="item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" >
-<a ng-click="goToTask(task.id)"><h2 style="float:left">{{task.id + 1}}. {{task.taskName}}</h2></a>
-<div ng-if="expert == true">
-<a ng-if="editMode == true" ng-click="goToEditTask(task.id)" class="icon ion-chevron-right icon-accessory button button-small button-assertive">EDIT</a>
-</div>
+<ion-list show-delete="false" can-swipe="true">
+<ion-item ng-repeat="task in tasks">
+{{task.id + 1}}. {{task.taskName}}
+<ion-option-button class="button-light icon button button-assertive ion-edit" ng-click="goToEditTask(task.id)" ng-if="expert == true"></ion-option-button>
+<!--<ion-option-button class="button-light icon ion-email"></ion-option-button>-->
+<!--<ion-option-button class="button-assertive icon ion-trash-a"></ion-option-button>-->
 </ion-item>
 </ion-list>
 

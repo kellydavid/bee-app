@@ -4,15 +4,6 @@ angular.module('starter.controllers', [])
 .controller('TasksCtrl', function($scope, $state, Tasks, Expert) {
   $scope.tasks = Tasks.all();
   $scope.expert = Expert.isExpert();
-  $scope.editMode = Expert.isEditMode();
-  
-  $scope.clickedEdit = function(){
-    if($scope.editMode){
-      $scope.editMode = false;
-    }else{
-      $scope.editMode = true;
-    }
-  }
 
   $scope.goToNewTask = function(){
     $state.go('tab.newTask');

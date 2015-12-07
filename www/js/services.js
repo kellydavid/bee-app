@@ -460,7 +460,6 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var expert = false;
-  var editMode = false;
 
   return {
     isExpert: function(){
@@ -471,15 +470,6 @@ angular.module('starter.services', [])
     },
     setExpert: function(valExpert){
       expert = valExpert;
-    },
-    isEditMode: function(){
-      if(editMode)
-        return true;
-      else
-        return false;
-    },
-    setEditMode: function(valEditMode){
-      expert = valEditMode;
     }
   }
 });
