@@ -53,12 +53,12 @@ angular.module('starter.controllers', [])
   $scope.updateTask = function(id){
     Tasks.update(id, $scope.formData.taskName, $scope.formData.shortDesc, $scope.formData.desc, $scope.formData.deadline);
     $scope.tasks = Tasks.all();
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   };
   $scope.deleteTask = function(id){
     Tasks.remove(id);
     $scope.tasks = Tasks.all();
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   };
 })
 
@@ -66,7 +66,7 @@ angular.module('starter.controllers', [])
 
   $scope.addTask = function(taskName, shortDesc, desc, deadline){
     Tasks.insert(taskName, shortDesc, desc, deadline);
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   }
 })
 
