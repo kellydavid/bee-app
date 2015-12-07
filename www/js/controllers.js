@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
   $scope.formData.taskName = task.taskName;
   $scope.formData.shortDesc = task.shortDescription;
   $scope.formData.desc = task.taskDescription;
-  $scope.formData.deadline = task.deadline;
+  $scope.formData.deadline = new Date(task.deadline, 'ddmmyyyy'); // this needs to be fixed
 
   $scope.updateTask = function(id){
     Tasks.update(id, $scope.formData.taskName, $scope.formData.shortDesc, $scope.formData.desc, $scope.formData.deadline);

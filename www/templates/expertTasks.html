@@ -9,7 +9,7 @@
 
 <ion-list>
 <ion-item class="item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" >
-<a href="#/tab/task/{{task.id}}"><h3 style="float:left">{{task.id + 1}}. {{task.taskName}}</h3></a>
+<a href="#/tab/task/{{task.id}}"><h2 style="float:left">{{task.id + 1}}. {{task.taskName}}</h2></a>
 <a ng-click="goToEditTask(task.id)" class="icon ion-chevron-right icon-accessory button button-assertive">EDIT</a>
 </ion-item>
 </ion-list>

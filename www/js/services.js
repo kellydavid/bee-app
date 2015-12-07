@@ -277,7 +277,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near their hive',
     taskDescription: 'We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.',
     face: 'img/ben.png',
-    deadline: '19/11/21'
+    deadline: '19/11/2016'
 
   }, 
   {
