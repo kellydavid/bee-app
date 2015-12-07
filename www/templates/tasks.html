@@ -1,13 +1,19 @@
 <ion-view view-title="Tasks">
+
+<ion-nav-bar>
+<ion-nav-buttons side="right">
+      <div ng-if="expert == true">
+		<button ng-click="goToNewTask()" class="button button-sm button-balanced"> New </button>
+		</div>
+</ion-nav-buttons>
+</ion-nav-bar>
+
 <ion-content>
 
 <label class="item item-input">
   <i class="icon ion-search placeholder-icon"></i>
   <input placeholder="Search" type="search">
 </label>
-<div ng-if="expert == true">
-	<button ng-click="goToNewTask()" class="button button-balanced"> New </button>
-</div>
 
 <ion-list>
 <ion-item class="item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" >
