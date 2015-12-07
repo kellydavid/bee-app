@@ -118,6 +118,10 @@ angular.module('starter.controllers', [])
   $scope.goToLeaderboard = function() {
       $state.go('tab.profile-leaderboard');  
   }
+
+  $scope.goToLogin = function(){
+    $state.go('login');
+  }
 })
 
 .controller('ProfileLeaderboardCtrl', function($scope, Leaderboard) {
@@ -202,8 +206,7 @@ angular.module('starter.controllers', [])
 
 // **** Login
 .controller('loginCtrl', function($scope, $state, $stateParams, Expert) {
-
-  $scope.goToTasks = function(name){
+$scope.goToTasks = function(name){
     if (name == "Eden"){
       Expert.setExpert(true);
     } else {

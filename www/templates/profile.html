@@ -10,7 +10,7 @@
 			tom@tomnomnomnom.com
 		</div>
 	</div>
-	</div>
+</div>
 </div>
 
 <div class="row">
@@ -42,15 +42,11 @@
 </div>
 
 <div class="row">
-	<div class="col"><button class="button button-block button-balanced" ng-click="goToLeaderboard()">Leaderboard</button></div>
-	
-</div>
-<div class="row">
-<div class="col"><a href="#/logout" style="text-decoration: none"><button class="button button-block button-balanced" >Log Out</button></a></div>
+	<button class="button button-block button-balanced" ng-click="goToLeaderboard()">Leaderboard</button>
 </div>
 
 <div class="row">
-    <div class="col"><a style="text-decoration: none;" href="#/login"><button class="button button-block button-balanced">Log Out</button></a></div>
+<button ng-click="goToLogin()" class="button button-block button-balanced">Log Out</button>
 </div>
 </ion-content>
 </ion-view>
