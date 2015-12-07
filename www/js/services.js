@@ -277,7 +277,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near their hive',
     taskDescription: 'We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.',
     face: 'img/ben.png',
-    deadline: '19/11/2016'
+    deadline: '2016-11-19'
 
   }, 
   {
@@ -286,7 +286,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near a car',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 2, 
@@ -294,7 +294,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near a lamp',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 3,
@@ -302,7 +302,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near some other place',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 4,
@@ -310,7 +310,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near a different car',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 5,
@@ -318,7 +318,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near around Dublin',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 6,
@@ -326,7 +326,7 @@ angular.module('starter.services', [])
     shortDescription: 'Take Pictures of bees near chocolate',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   },
   {
     id: 7,
@@ -334,7 +334,7 @@ angular.module('starter.services', [])
     shortDescription: 'Oooooooooooh please take a picture of bees',
     taskDescription: 'Description',
     face: 'img/mike.png',
-    deadline: '19/11/21'
+    deadline: '2016-11-19'
   }];
   if (window.localStorage["tasks"] == null){
     window.localStorage["tasks"] = angular.toJson(tasksDummy);
