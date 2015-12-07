@@ -12,10 +12,32 @@ angular.module('starter.controllers', [])
   $scope.goToEditTask = function(id){
     $state.go('tab.editTask', {id:id})
   }
+
+  $scope.goToTask = function(id){
+    $state.go('tab.task', {id:id});
+  }
 })
 
-.controller('TaskCtrl', function($scope, $stateParams, Tasks) {
+.controller('TaskCtrl', function($scope, $state, $stateParams, Tasks) {
   $scope.task = Tasks.get($stateParams.id);
+
+  $scope.goToImageSelect = function(){
+    $state.go('tab.imageSelect');
+  }
+})
+
+.controller('TaskImageSelectCtrl', function($scope, $state) {
+
+  $scope.goToImageDescription = function(){
+    $state.go('tab.imageDescription')
+  }
+})
+
+.controller('TaskImageDescriptionCtrl', function($scope, $state, $ionicHistory) {
+
+  $scope.clickedUpload = function(){
+    $ionicHistory.goBack(-2);
+  }
 })
 
 .controller('EditTaskCtrl', function($scope, $state, $stateParams, Tasks) {
