@@ -358,7 +358,7 @@ angular.module('starter.services', [])
   return {
     newTask: function(){
       return {
-        id: tasks.length,
+        id: tasksDummy.length,
         taskName: 'empty',
         shortDescription: 'empty',
         taskDescription: 'empty',
@@ -370,7 +370,7 @@ angular.module('starter.services', [])
       return angular.fromJson(window.localStorage["tasks"]);
     },
     get: function(taskId) {
-        //var tasks = angular.fromJson(window.localStorage["tasks"]);
+        var tasks = angular.fromJson(window.localStorage["tasks"]);
         
         for (var i = 0; i < tasks.length; i++) {
           if (tasks[i].id === parseInt(taskId)) {

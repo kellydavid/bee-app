@@ -112,6 +112,7 @@ angular.module('starter.controllers', [])
     task.shortDescription = $scope.newTask.shortDesc;
     task.taskDescription = $scope.newTask.desc;
     task.deadline = $scope.newTask.deadline;
+    console.log(task.id, "task.id");
     console.log(task.taskName, "task.taskName");
     console.log(task.shortDescription, "task.shortDescription");
     console.log(task.taskDescription, "task.taskDescription");
