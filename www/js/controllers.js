@@ -4,6 +4,10 @@ angular.module('starter.controllers', [])
 .controller('TasksCtrl', function($scope, $state, $ionicPopup, Tasks, Expert) {
   $scope.tasks = Tasks.all();
   $scope.expert = Expert.isExpert();
+  
+  $scope.data = {
+    showDelete: false
+  };
 
   $scope.goToNewTask = function(){
     $state.go('tab.newTask');
@@ -17,16 +21,20 @@ angular.module('starter.controllers', [])
     $state.go('tab.task', {id:id});
   }
 
-  $scope.deleteTask = function() {
+  $scope.deleteTask = function(task) {
+
    var confirmDeletePopup = $ionicPopup.confirm({
      title: 'Delete Task',
      template: 'Are you sure you want to delete this task?'
    });
+   
    confirmDeletePopup.then(function(res) {
      if(res) {
-       console.log('You are sure');
+       $scope.tasks.splice($scope.tasks.indexOf(task), 1);
+       Tasks.save($scope.tasks);
+       console.log('Task Deleted');
      } else {
-       console.log('You are not sure');
+       console.log('Task Not Deleted');
      }
    });
   }

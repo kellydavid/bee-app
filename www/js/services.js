@@ -405,7 +405,10 @@ angular.module('starter.services', [])
         }
         console.log(tasks);
         window.localStorage["tasks"] = angular.toJson(tasks);
-      }
+      },
+      save: function(tasks) {
+      window.localStorage['tasks'] = angular.toJson(tasks);
+    }
   };
 })
 
