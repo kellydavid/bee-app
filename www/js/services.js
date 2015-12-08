@@ -291,7 +291,7 @@ angular.module('starter.services', [])
     taskName: 'Beehive Research',
     shortDescription: 'Take Pictures of bees near their hive',
     taskDescription: 'We need more pictures of bees near their hive for scientific research about hives and bees and stuff. So take pictures of bees please.',
-    face: 'img/ben.png',
+    face: 'img/bees/5.jpg',
     deadline: '2016-11-19'
 
   }, 
@@ -300,7 +300,7 @@ angular.module('starter.services', [])
     taskName: 'Task2',
     shortDescription: 'Take Pictures of bees near a car',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/8.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -308,7 +308,7 @@ angular.module('starter.services', [])
     taskName: 'Task3',
     shortDescription: 'Take Pictures of bees near a lamp',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/7.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -316,7 +316,7 @@ angular.module('starter.services', [])
     taskName: 'Task4',
     shortDescription: 'Take Pictures of bees near some other place',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/6.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -324,7 +324,7 @@ angular.module('starter.services', [])
     taskName: 'Task5',
     shortDescription: 'Take Pictures of bees near a different car',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/9.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -332,7 +332,7 @@ angular.module('starter.services', [])
     taskName: 'Task6',
     shortDescription: 'Take Pictures of bees near around Dublin',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/4.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -340,7 +340,7 @@ angular.module('starter.services', [])
     taskName: 'Task7',
     shortDescription: 'Take Pictures of bees near chocolate',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/3.jpg',
     deadline: '2016-11-19'
   },
   {
@@ -348,7 +348,7 @@ angular.module('starter.services', [])
     taskName: 'Task8',
     shortDescription: 'Oooooooooooh please take a picture of bees',
     taskDescription: 'Description',
-    face: 'img/mike.png',
+    face: 'img/bees/2.jpg',
     deadline: '2016-11-19'
   }];
   if (window.localStorage["tasks"] == null){
