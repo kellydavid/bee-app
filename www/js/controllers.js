@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 // *** Tasks
-.controller('TasksCtrl', function($scope, $state, Tasks, Expert) {
+.controller('TasksCtrl', function($scope, $state, $ionicPopup, Tasks, Expert) {
   $scope.tasks = Tasks.all();
   $scope.expert = Expert.isExpert();
 
@@ -16,6 +16,21 @@ angular.module('starter.controllers', [])
   $scope.goToTask = function(id){
     $state.go('tab.task', {id:id});
   }
+
+  $scope.deleteTask = function() {
+   var confirmDeletePopup = $ionicPopup.confirm({
+     title: 'Delete Task',
+     template: 'Are you sure you want to delete this task?'
+   });
+   confirmDeletePopup.then(function(res) {
+     if(res) {
+       console.log('You are sure');
+     } else {
+       console.log('You are not sure');
+     }
+   });
+  }
+
 })
 
 .controller('TaskCtrl', function($scope, $state, $stateParams, Tasks) {
@@ -75,48 +90,48 @@ angular.module('starter.controllers', [])
 .controller('SortCtrl', function($scope) {})
 
 .controller("sortCtrl", function($scope, $state, UnsortedBees) {
-    $scope.bees = UnsortedBees.all();
-    $scope.clickGridItem = function($index) {
-        $state.go('tab.sort-item', {sortId: $index});
-    }
+  $scope.bees = UnsortedBees.all();
+  $scope.clickGridItem = function($index) {
+    $state.go('tab.sort-item', {sortId: $index});
+  }
 })
 
 .controller('sortItemCtrl', function($scope, $state, $stateParams, UnsortedBees, Tags) {
-    $scope.bee = UnsortedBees.get($stateParams.sortId);
-    $scope.tags = Tags.all($stateParams.sortId);
-    $scope.clickAddButton = function() {
-        $state.go('tab.sort-add', {beeId: $stateParams.sortId});
-    }
+  $scope.bee = UnsortedBees.get($stateParams.sortId);
+  $scope.tags = Tags.all($stateParams.sortId);
+  $scope.clickAddButton = function() {
+    $state.go('tab.sort-add', {beeId: $stateParams.sortId});
+  }
 })
 
 .controller('sortAddCtrl', function($scope, $state, $stateParams, UnsortedBees, Categories, Tags) {
-    $scope.bee = UnsortedBees.get($stateParams.beeId);
-    $scope.categories = Categories.all();
-    $scope.numAdded = 0;
-    $scope.numAddedText = "";
+  $scope.bee = UnsortedBees.get($stateParams.beeId);
+  $scope.categories = Categories.all();
+  $scope.numAdded = 0;
+  $scope.numAddedText = "";
+  $scope.formData = {};
+  $scope.tags = Tags.all($stateParams.beeId);
+  $scope.clickAddButton = function() {
+    var newTag = Tags.newTag();
+    newTag.tag = $scope.formData.text;
+    newTag.category = $scope.formData.category;
+    $scope.tags.push(newTag);
+    Tags.save($scope.tags, $stateParams.beeId);
     $scope.formData = {};
-    $scope.tags = Tags.all($stateParams.beeId);
-    $scope.clickAddButton = function() {
-        var newTag = Tags.newTag();
-        newTag.tag = $scope.formData.text;
-        newTag.category = $scope.formData.category;
-        $scope.tags.push(newTag);
-        Tags.save($scope.tags, $stateParams.beeId);
-        $scope.formData = {};
-        $scope.numAdded += 1;
-        if ($scope.numAdded == 1) {
-            $scope.numAddedText = "1 category added";
-        } else {
-            $scope.numAddedText = $scope.numAdded+" categories added";
-        }
+    $scope.numAdded += 1;
+    if ($scope.numAdded == 1) {
+      $scope.numAddedText = "1 category added";
+    } else {
+      $scope.numAddedText = $scope.numAdded+" categories added";
     }
+  }
 })
 
 // **** Profile
 .controller('ProfileCtrl', function($scope, $state) {
 
   $scope.goToLeaderboard = function() {
-      $state.go('tab.profile-leaderboard');  
+    $state.go('tab.profile-leaderboard');  
   }
 
   $scope.goToLogin = function(){
@@ -140,11 +155,11 @@ angular.module('starter.controllers', [])
   $scope.filters = Filters.getAll();
 
   $scope.goToAnalysisSelect = function() {
-      $state.go('tab.analysis-select');  
+    $state.go('tab.analysis-select');  
   }
 
   $scope.goToAnalysisChoice = function() {
-      $state.go('tab.analysis-choice');  
+    $state.go('tab.analysis-choice');  
   }
 })
 
@@ -171,8 +186,8 @@ angular.module('starter.controllers', [])
 
       Filters.save($scope.filters);
       $state.go('tab.analysis');  
-  }
-})
+    }
+  })
 
 .controller('AnalysisChoiceCtrl', function($scope, $state) {
   $scope.goToLineGraph = function(){
@@ -186,27 +201,27 @@ angular.module('starter.controllers', [])
 
 .controller('AnalysisVisLineGraphCtrl', function($scope, $state) {
 
-    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-    $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [
+  [65, 59, 80, 81, 56, 55, 40],
+  [28, 48, 40, 19, 86, 27, 90]
+  ];
 })
 
 .controller('AnalysisVisBarGraphCtrl', function($scope, $state) {
 
-    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-    $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A', 'Series B'];
+  $scope.data = [
+  [65, 59, 80, 81, 56, 55, 40],
+  [28, 48, 40, 19, 86, 27, 90]
+  ];
 })
 
 // **** Login
 .controller('loginCtrl', function($scope, $state, $stateParams, Expert) {
-$scope.goToTasks = function(name){
+  $scope.goToTasks = function(name){
     if (name == "Eden"){
       Expert.setExpert(true);
     } else {

@@ -20,14 +20,30 @@
 	<input placeholder="Search" type="search">
 </label>
 
-<ion-list show-delete="false" can-swipe="true">
-<ion-item ng-repeat="task in tasks">
-<a ng-click="goToTask(task.id)">{{task.id + 1}}. {{task.taskName}}</a>
-<ion-option-button class="button-light icon button button-assertive ion-edit" ng-click="goToEditTask(task.id)" ng-if="expert == true"></ion-option-button>
-<!--<ion-option-button class="button-light icon ion-email"></ion-option-button>-->
-<!--<ion-option-button class="button-assertive icon ion-trash-a"></ion-option-button>-->
+<div ng-if="expert == true">
+<ion-list>
+<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" ng-click="goToTask(task.id)">
+<img ng-src="{{task.face}}">
+<h2>{{task.taskName}}</h2>
+<p>Karma: {{task.shortDescription}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+
+<ion-option-button class="button-calm ion-edit" ng-click="goToEditTask(task.id)"></ion-option-button>
+<ion-option-button class="button-assertive ion-ios-trash" ng-click="deleteTask(task.id)"></ion-option-button>
 </ion-item>
 </ion-list>
+</div>
+
+<div ng-if="expert == false">
+<ion-list>
+<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" ng-click="goToTask(task.id)">
+<img ng-src="{{task.face}}">
+<h2>{{task.taskName}}</h2>
+<p>Karma: {{task.shortDescription}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+</ion-list>
+</div>
 
 </ion-content>
 </ion-view>
