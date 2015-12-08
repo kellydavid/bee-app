@@ -27,7 +27,7 @@
 	<ion-item ng-repeat="task in tasks" ng-click="goToTask(task.id)" class="item-remove-animate  item-avatar item-icon-right">
 	<img ng-src="{{task.face}}">
 	<h2>{{task.taskName}}</h2>
-	<p>Karma: {{task.shortDescription}}</p>
+	<p>{{task.shortDescription}}</p>
 	<i class="icon ion-chevron-right icon-accessory"></i>
 
 	<ion-delete-button class="ion-minus-circled" 
