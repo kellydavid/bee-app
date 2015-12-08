@@ -242,6 +242,9 @@ $scope.clickedUpload = function(){
   $scope.goToBarGraph = function(){
     $state.go('tab.analysis-vis-bg');
   }
+  $scope.goToMap = function() {
+    $state.go('tab.analysis-vis-map');  
+  }
 })
 
 
@@ -253,21 +256,6 @@ $scope.clickedUpload = function(){
   [65, 59, 80, 81, 56, 55, 40],
   [28, 48, 40, 19, 86, 27, 90]
   ];
-
-
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady()
-{
-  $scope.changeOrientation = function() {
-    var currentOrientation = screen.orientation();
-    console.log(currentOrientation);
-    if(currentOrientation == 'portrait')
-      screen.lockOrientation('landscape');
-    else
-      screen.lockOrientation('portrait');
-  }
-}
-
 })
 
 .controller('AnalysisVisBarGraphCtrl', function($scope, $state) {
@@ -279,20 +267,9 @@ function onDeviceReady()
   [28, 48, 40, 19, 86, 27, 90]
   ];
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady()
-{
-  $scope.changeOrientation = function() {
-    var currentOrientation = screen.orientation();
-    console.log(currentOrientation);
-    if(currentOrientation == "portrait")
-      screen.lockOrientation('landscape');
-    else
-      screen.lockOrientation('portrait');
-  }
-}
-
 })
+
+.controller('AnalysisVisMapCtrl', function($scope, $state) {})
 
 // **** Login
 .controller('loginCtrl', function($scope, $state, $stateParams, Expert) {

@@ -211,6 +211,16 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
     }
   })
 
+  .state('tab.analysis-vis-map', {
+    url: '/analysis-vis-map',
+    views: {
+      'analysis': {
+        templateUrl: 'templates/analysis-vis-map.html',
+        controller: 'AnalysisVisMapCtrl'
+      }
+    }
+  })
+
   .state('tab.analysis-vis-lg', {
     url: '/analysis-vis-lg',
     views: {
