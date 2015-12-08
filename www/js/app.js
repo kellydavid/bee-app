@@ -55,30 +55,23 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 
 
   // **** Tasks
-  .state('imageDescription', {
-    url: '/imageDescription',
-    templateUrl: 'templates/imageDescription.html'
-  })
 
   .state('tab.imageDescription', {
     url: '/task/imageDescription',
     views: {
       'tasks': {
-        templateUrl: 'templates/imageDescription.html'
+        templateUrl: 'templates/imageDescription.html',
+        controller: 'TaskImageDescriptionCtrl'
       }
     }
-  })
-  
-  .state('imageSelect', {
-    url: '/imageSelect',
-    templateUrl: 'templates/imageSelect.html'
   })
 
   .state('tab.imageSelect', {
     url: '/task/imageSelect',
     views: {
       'tasks': {
-        templateUrl: 'templates/imageSelect.html'
+        templateUrl: 'templates/imageSelect.html',
+        controller: 'TaskImageSelectCtrl'
       }
     }
   })

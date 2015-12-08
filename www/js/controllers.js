@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 .controller('TasksCtrl', function($scope, $state, Tasks, Expert) {
   $scope.tasks = Tasks.all();
   $scope.expert = Expert.isExpert();
-  
+
   $scope.goToNewTask = function(){
     $state.go('tab.newTask');
   }
@@ -12,10 +12,32 @@ angular.module('starter.controllers', [])
   $scope.goToEditTask = function(id){
     $state.go('tab.editTask', {id:id})
   }
+
+  $scope.goToTask = function(id){
+    $state.go('tab.task', {id:id});
+  }
 })
 
-.controller('TaskCtrl', function($scope, $stateParams, Tasks) {
+.controller('TaskCtrl', function($scope, $state, $stateParams, Tasks) {
   $scope.task = Tasks.get($stateParams.id);
+
+  $scope.goToImageSelect = function(){
+    $state.go('tab.imageSelect');
+  }
+})
+
+.controller('TaskImageSelectCtrl', function($scope, $state) {
+
+  $scope.goToImageDescription = function(){
+    $state.go('tab.imageDescription')
+  }
+})
+
+.controller('TaskImageDescriptionCtrl', function($scope, $state, $ionicHistory) {
+
+  $scope.clickedUpload = function(){
+    $ionicHistory.goBack(-2);
+  }
 })
 
 .controller('EditTaskCtrl', function($scope, $state, $stateParams, Tasks) {
@@ -31,12 +53,12 @@ angular.module('starter.controllers', [])
   $scope.updateTask = function(id){
     Tasks.update(id, $scope.formData.taskName, $scope.formData.shortDesc, $scope.formData.desc, $scope.formData.deadline);
     $scope.tasks = Tasks.all();
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   };
   $scope.deleteTask = function(id){
     Tasks.remove(id);
     $scope.tasks = Tasks.all();
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   };
 })
 
@@ -44,7 +66,7 @@ angular.module('starter.controllers', [])
 
   $scope.addTask = function(taskName, shortDesc, desc, deadline){
     Tasks.insert(taskName, shortDesc, desc, deadline);
-    $state.go('tab.expertTasks');
+    $state.go('tab.tasks');
   }
 })
 
@@ -95,6 +117,10 @@ angular.module('starter.controllers', [])
 
   $scope.goToLeaderboard = function() {
       $state.go('tab.profile-leaderboard');  
+  }
+
+  $scope.goToLogin = function(){
+    $state.go('login');
   }
 })
 
@@ -180,8 +206,7 @@ angular.module('starter.controllers', [])
 
 // **** Login
 .controller('loginCtrl', function($scope, $state, $stateParams, Expert) {
-
-  $scope.goToTasks = function(name){
+$scope.goToTasks = function(name){
     if (name == "Eden"){
       Expert.setExpert(true);
     } else {
