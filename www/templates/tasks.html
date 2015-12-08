@@ -1,6 +1,11 @@
 <ion-view view-title="Tasks">
 
 <ion-nav-bar>
+<ion-nav-buttons side="left">
+<div ng-if="expert == true">
+	<p style="color: #33cd5f; padding-top: 6px; padding-left:2px;">Expert</p>
+</div>
+</ion-nav-buttons>
 <ion-nav-buttons side="right">
 <div ng-if="expert == true">
 	<button ng-click="goToNewTask()" class="button button-positive">New</button>
