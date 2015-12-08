@@ -1,7 +1,13 @@
 <ion-view view-title="Edit task">
-  <ion-content class="padding">
-    <button class="button button-assertive" ng-click="deleteTask({{task.id}})"> Delete </button>
 
+<ion-nav-bar>
+<ion-nav-buttons side="right">
+<button class="button button-icon" ng-click="updateTask({{task.id}})">Done</button>
+</ion-nav-buttons>
+</ion-nav-bar>
+
+<ion-content class="padding">
+<div class="list">
     <label class="item item-input item-stacked-label">
         <span class="input-label">Task Name</span>
         <input ng-model="formData.taskName" type="text">
@@ -19,15 +25,12 @@
 
     <label class="item item-input item-stacked-label">
         <span class="input-label">Task Deadline (DD/MM/YY)</span>
-        <input ng-model="formData.deadline" type="date" placeholder="{{task.deadline | date:'dd/mm/yyyy'}}">
+        <input ng-model="formData.deadline" type="date" placeholder="{{task.deadline | date:'dd/MM/yyyy'}}">
     </label>
 
     <label class="item item-input item-stacked-label">
         <span class="input-label">Example images....?</span>
     </label>
-
-    <button class="button button-assertive"> Abort </button>
-    <button class="button button-balanced" ng-click="updateTask({{task.id}})"> Submit </button>
-
-  </ion-content>
+</div>
+</ion-content>
 </ion-view>

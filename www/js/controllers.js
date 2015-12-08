@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
      title: 'Delete Task',
      template: 'Are you sure you want to delete this task?'
    });
-   
+
    confirmDeletePopup.then(function(res) {
      if(res) {
        $scope.tasks.splice($scope.tasks.indexOf(task), 1);
@@ -43,6 +43,10 @@ angular.module('starter.controllers', [])
 
 .controller('TaskCtrl', function($scope, $state, $stateParams, Tasks) {
   $scope.task = Tasks.get($stateParams.id);
+
+  $scope.data = {
+    showMore: false
+  };
 
   $scope.goToImageSelect = function(){
     $state.go('tab.imageSelect');

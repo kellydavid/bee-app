@@ -1,36 +1,35 @@
 <ion-view view-title="Task Description">
-<!--
 <ion-content>
 
-<div class="row">
-<div class="col">
-	<div class="card">
-		<div class="item item-divider">
-			Task {{task.taskName}}
-		</div>
-		<div class="item item-text-wrap">
-			{{task.taskDescription}}
-		</div>
-	</div>
-	</div>
+<div class="card">
+  <div class="item item-divider">
+    {{task.taskName}}
+  </div>
+
+  <div class="item item-text-wrap">
+    {{task.shortDescription}}
+    <br />
+    <a style="color: #387EF5;" ng-click="data.showMore = !data.showMore" ng-show="!data.showMore">...Show More</a>
+    <div ng-show="data.showMore">
+        <br />
+        {{task.taskDescription}}
+        <br />
+        <a style="color: #387EF5;" ng-click="data.showMore = !data.showMore">...Show Less</a>
+    </div>
+  </div>
+
+  <div class="item item-image">
+    <img src="{{task.face}}" style="width: 80%; height: 80%">
+  </div>
+
+  <div class="item item-divider">
+    Deadline: {{task.deadline | date:'dd/MM/yyyy'}}
+  </div>
 </div>
 
+<button class="button button-block button-balanced" ng-click="goToImageSelect()">Submit Photo</button>
 
 </ion-content>
--->
-    <ion-content class="has-header" padding="'true'">
-        <h1 style="">{{task.taskName}}</h1>
-        <div style="">
-        	<p>{{task.shortDescription}}</p>
-            <p>{{task.taskDescription}}</p>
-        </div>
-        <a style="text-decoration: none;"  ng-click="goToImageSelect()">
-        	<button style="" class="button button-stable button-block ">Take Photo</button>
-        </a>
-        <a style="text-decoration: none;" ng-click="goToImageSelect()">
-        	<button style="" class="button button-stable button-block ">Select Photo</button>
-        </a>
-    </ion-content>
 </ion-view>
 
 
