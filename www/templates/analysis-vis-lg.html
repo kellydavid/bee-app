@@ -1,5 +1,12 @@
 <ion-view view-title="Analysis Visualisation">
-<ion-content class="padding"ng-controller="AnalysisVisLineGraphCtrl">
+
+<ion-nav-bar> 
+<ion-nav-buttons side="right">
+<button class="button button-icon icon ion-ios-refresh-outline" ng-click="changeOrientation()"></button>
+</ion-nav-buttons>
+</ion-nav-bar>
+
+<ion-content class="padding">
     <div class="card">
         <div class="item item-divider">
             Analysis Visualisation
