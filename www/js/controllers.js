@@ -60,9 +60,17 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('TaskImageDescriptionCtrl', function($scope, $state, $ionicHistory) {
+.controller('TaskImageDescriptionCtrl', function($scope, $state, $ionicPopup, $ionicHistory) {
 
-  $scope.clickedUpload = function(){
+$scope.clickedUpload = function(){
+    // An alert dialog
+   var alertPopup = $ionicPopup.alert({
+     title: 'Success',
+     template: 'Received your submission'
+   });
+   alertPopup.then(function(res) {
+     console.log('Thank you submitting');
+   });
     $ionicHistory.goBack(-2);
   }
 })
@@ -240,7 +248,7 @@ angular.module('starter.controllers', [])
 .controller('AnalysisVisLineGraphCtrl', function($scope, $state) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  $scope.series = ['Series A', 'Series B'];
+  $scope.series = ['Bumble Bees', 'Honey Bees'];
   $scope.data = [
   [65, 59, 80, 81, 56, 55, 40],
   [28, 48, 40, 19, 86, 27, 90]
@@ -265,7 +273,7 @@ function onDeviceReady()
 .controller('AnalysisVisBarGraphCtrl', function($scope, $state) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  $scope.series = ['Series A', 'Series B'];
+  $scope.series = ['Bumble Bees', 'Honey Bees'];
   $scope.data = [
   [65, 59, 80, 81, 56, 55, 40],
   [28, 48, 40, 19, 86, 27, 90]
