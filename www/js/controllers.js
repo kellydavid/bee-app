@@ -90,9 +90,34 @@ angular.module('starter.controllers', [])
 })
 
 .controller('NewTaskCtrl', function($scope, $state, $stateParams, Tasks) {
+  // get date
+  var d=new Date();
+  var year=d.getFullYear();
+  var month=d.getMonth()+1;
+  if (month<10){
+    month="0" + month;
+  };
+  var day=d.getDate();
+  //$scope.ddate=year + "-" + month + "-" + day;
+  var dddate = day+"/"+month+"/"+year;
+  $scope.ddate = dddate;
+  console.log($scope.ddate);
+  $scope.deadline = dddate;
 
-  $scope.addTask = function(taskName, shortDesc, desc, deadline){
-    Tasks.insert(taskName, shortDesc, desc, deadline);
+  $scope.newTask = {};
+
+  $scope.doneCreatingNewTask = function(){
+    var task = Tasks.newTask();
+    task.taskName = $scope.newTask.taskName;
+    task.shortDescription = $scope.newTask.shortDesc;
+    task.taskDescription = $scope.newTask.desc;
+    task.deadline = $scope.newTask.deadline;
+    console.log(task.taskName, "task.taskName");
+    console.log(task.shortDescription, "task.shortDescription");
+    console.log(task.taskDescription, "task.taskDescription");
+    $scope.tasks = Tasks.all();
+    $scope.tasks.push(task);
+    Tasks.save($scope.tasks);
     $state.go('tab.tasks');
   }
 })

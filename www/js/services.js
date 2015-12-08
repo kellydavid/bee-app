@@ -45,30 +45,30 @@ angular.module('starter.services', [])
     karma: 762,
     face: 'img/nm.png'
   },{
-      id: 8,
-      name: 'Ben Sparrow',
-      karma: 558,
-      face: 'img/ben.png'
+    id: 8,
+    name: 'Ben Sparrow',
+    karma: 558,
+    face: 'img/ben.png'
   }, {
-      id: 9,
-      name: 'Max Lynx',
-      karma: 341,
-      face: 'img/max.png'
+    id: 9,
+    name: 'Max Lynx',
+    karma: 341,
+    face: 'img/max.png'
   }, {
-      id: 10,
-      name: 'Adam Bradleyson',
-      karma: 320,
-      face: 'img/adam.jpg'
+    id: 10,
+    name: 'Adam Bradleyson',
+    karma: 320,
+    face: 'img/adam.jpg'
   }, {
-      id: 11,
-      name: 'Perry Governor',
-      karma: 270,
-      face: 'img/perry.png'
+    id: 11,
+    name: 'Perry Governor',
+    karma: 270,
+    face: 'img/perry.png'
   },{
-      id: 12,
-      name: 'Tom Murphy',
-      karma: 109,
-      face: 'img/tom.png'
+    id: 12,
+    name: 'Tom Murphy',
+    karma: 109,
+    face: 'img/tom.png'
   }];
 
   return {
@@ -356,10 +356,20 @@ angular.module('starter.services', [])
   }
   var tasks = angular.fromJson(window.localStorage["tasks"]);
   return {
-      all: function() {
-        return angular.fromJson(window.localStorage["tasks"]);
-      },
-      get: function(taskId) {
+    newTask: function(){
+      return {
+        id: tasks.length,
+        taskName: 'empty',
+        shortDescription: 'empty',
+        taskDescription: 'empty',
+        face: 'img/mike.png',
+        deadline: '2015-12-09'
+      };
+    },
+    all: function() {
+      return angular.fromJson(window.localStorage["tasks"]);
+    },
+    get: function(taskId) {
         //var tasks = angular.fromJson(window.localStorage["tasks"]);
         
         for (var i = 0; i < tasks.length; i++) {
@@ -407,10 +417,10 @@ angular.module('starter.services', [])
         window.localStorage["tasks"] = angular.toJson(tasks);
       },
       save: function(tasks) {
-      window.localStorage['tasks'] = angular.toJson(tasks);
-    }
-  };
-})
+        window.localStorage['tasks'] = angular.toJson(tasks);
+      }
+    };
+  })
 
 .factory('Filters', function() {
   // Might use a resource here that returns a JSON array
@@ -461,11 +471,11 @@ angular.module('starter.services', [])
       return tags;
     },
     all: function(idx) {
-        var tagString = window.localStorage['tags'+idx];
-        if (tagString) {
-            return angular.fromJson(tagString);
-        }
-        return [];
+      var tagString = window.localStorage['tags'+idx];
+      if (tagString) {
+        return angular.fromJson(tagString);
+      }
+      return [];
     },
     save: function(tags, idx) {
       window.localStorage['tags'+idx] = angular.toJson(tags);

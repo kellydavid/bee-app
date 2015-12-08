@@ -1,5 +1,14 @@
 <ion-view view-title="Add task">
+
+<ion-nav-bar>
+<ion-nav-buttons side="right">
+<button class="button button-icon" ng-click="doneCreatingNewTask()">Done</button>
+</ion-nav-buttons>
+</ion-nav-bar>
+
   <ion-content class="padding">
+
+<!--
     <div class="list">
     <label class="item item-input item-stacked-label">
         <span class="input-label">Task Name</span>
@@ -23,6 +32,28 @@
 
     <button class="button button-assertive"> Abort </button>
     <button class="button button-balanced" ng-click="addTask(name, shortDesc, desc, deadline)"> Submit </button>
+    </div>
+
+    -->
+
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Task Name</span>
+    <input ng-model="newTask.taskName" type="text" placeholder="Task Name">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Short Description</span>
+    <input ng-model="newTask.shortDesc" type="text" placeholder="Short Description">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Description</span>
+    <input ng-model="newTask.desc" type="text" placeholder="Full Description">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Deadline</span>
+    <input ng-model="newTask.deadline" type="date" placeholder="Deadline">
+  </label>
+</div>
 
   </ion-content>
 </ion-view>
