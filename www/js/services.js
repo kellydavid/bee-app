@@ -6,54 +6,69 @@ angular.module('starter.services', [])
   // Some fake testing data
   var leaders = [{
     id: 0,
-    name: 'Ben Sparrow',
-    karma: 120,
-    face: 'img/ben.png'
-  }, {
+    name: 'John Lennon',
+    karma: 1009,
+    face: 'img/jl.png'
+  },{
     id: 1,
-    name: 'Max Lynx',
-    karma: 34000,
-    face: 'img/max.png'
-  }, {
+    name: 'Paul McCartney',
+    karma: 997,
+    face: 'img/pmcc.png'
+  },{
     id: 2,
-    name: 'Adam Bradleyson',
-    karma: 32000,
-    face: 'img/adam.jpg'
-  }, {
+    name: 'George Harrison',
+    karma: 910,
+    face: 'img/gh.png'
+  },{
     id: 3,
-    name: 'Perry Governor',
-    karma: 27000,
-    face: 'img/perry.png'
-  }, {
+    name: 'Ringo Starr',
+    karma: 899,
+    face: 'img/rs.png'
+  },{
+    id: 4,
+    name: 'David Gilmour',
+    karma: 850,
+    face: 'img/dg.png'
+  },{
     id: 5,
-    name: 'Mike Harrington',
-    karma: 10000,
-    face: 'img/mike.png'
-  }, {
+    name: 'Roger Waters',
+    karma: 821,
+    face: 'img/rw.png'
+  },{
     id: 6,
-    name: 'Tom Murphy',
-    karma: 9001,
-    face: 'img/ben.png'
-  }, {
+    name: 'Richard Wright',
+    karma: 808,
+    face: 'img/rww.png'
+  },{
     id: 7,
-    name: 'Conor Taylor',
-    karma: 10000,
-    face: 'img/adam.jpg'
+    name: 'Nick Mason',
+    karma: 762,
+    face: 'img/nm.png'
+  },{
+      id: 8,
+      name: 'Ben Sparrow',
+      karma: 558,
+      face: 'img/ben.png'
   }, {
-    id: 8,
-    name: 'Eden Doyle',
-    karma: 10000,
-    face: 'img/perry.png'
+      id: 9,
+      name: 'Max Lynx',
+      karma: 341,
+      face: 'img/max.png'
   }, {
-    id: 9,
-    name: 'David Kelly',
-    karma: 10000,
-    face: 'img/max.png'
+      id: 10,
+      name: 'Adam Bradleyson',
+      karma: 320,
+      face: 'img/adam.jpg'
   }, {
-    id: 10,
-    name: 'Eileen Dover',
-    karma: 10000,
-    face: 'img/mike.png'
+      id: 11,
+      name: 'Perry Governor',
+      karma: 270,
+      face: 'img/perry.png'
+  },{
+      id: 12,
+      name: 'Tom Murphy',
+      karma: 109,
+      face: 'img/tom.png'
   }];
 
   return {
@@ -473,3 +488,4 @@ angular.module('starter.services', [])
     }
   }
 });
+
