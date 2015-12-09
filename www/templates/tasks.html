@@ -47,7 +47,7 @@
 	<ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" ng-click="goToTask(task.id)">
 	<img ng-src="{{task.face}}">
 	<h2>{{task.taskName}}</h2>
-	<p>Karma: {{task.shortDescription}}</p>
+	<p>{{task.shortDescription}}</p>
 	<i class="icon ion-chevron-right icon-accessory"></i>
 </ion-item>
 </ion-list>
