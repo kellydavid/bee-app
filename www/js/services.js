@@ -297,7 +297,7 @@ angular.module('starter.services', [])
   }, 
   {
     id: 1,
-    taskName: 'Task2',
+    taskName: 'Urban colony collapse',
     shortDescription: 'Take Pictures of bees near a car',
     taskDescription: 'Description',
     face: 'img/bees/8.jpg',
@@ -305,7 +305,7 @@ angular.module('starter.services', [])
   },
   {
     id: 2, 
-    taskName: 'Task3',
+    taskName: 'Night breeding study',
     shortDescription: 'Take Pictures of bees near a lamp',
     taskDescription: 'Description',
     face: 'img/bees/7.jpg',
@@ -313,15 +313,15 @@ angular.module('starter.services', [])
   },
   {
     id: 3,
-    taskName: 'Task4',
-    shortDescription: 'Take Pictures of bees near some other place',
+    taskName: 'Wetlands study',
+    shortDescription: 'Take Pictures of bees near a lake',
     taskDescription: 'Description',
     face: 'img/bees/6.jpg',
     deadline: '2016-11-19'
   },
   {
     id: 4,
-    taskName: 'Task5',
+    taskName: 'Urban colony collapse II',
     shortDescription: 'Take Pictures of bees near a different car',
     taskDescription: 'Description',
     face: 'img/bees/9.jpg',
@@ -329,7 +329,7 @@ angular.module('starter.services', [])
   },
   {
     id: 5,
-    taskName: 'Task6',
+    taskName: 'Urban colony collapse III',
     shortDescription: 'Take Pictures of bees near around Dublin',
     taskDescription: 'Description',
     face: 'img/bees/4.jpg',
@@ -337,7 +337,7 @@ angular.module('starter.services', [])
   },
   {
     id: 6,
-    taskName: 'Task7',
+    taskName: 'Stimulation study',
     shortDescription: 'Take Pictures of bees near chocolate',
     taskDescription: 'Description',
     face: 'img/bees/3.jpg',
@@ -345,7 +345,7 @@ angular.module('starter.services', [])
   },
   {
     id: 7,
-    taskName: 'Task8',
+    taskName: 'General study',
     shortDescription: 'Oooooooooooh please take a picture of bees',
     taskDescription: 'Description',
     face: 'img/bees/2.jpg',
