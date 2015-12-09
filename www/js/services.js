@@ -362,7 +362,7 @@ angular.module('starter.services', [])
         taskName: 'empty',
         shortDescription: 'empty',
         taskDescription: 'empty',
-        face: 'img/mike.png',
+        face: 'img/bees/6.jpg',
         deadline: '2015-12-09'
       };
     },

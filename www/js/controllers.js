@@ -62,13 +62,13 @@ angular.module('starter.controllers', [])
 
 .controller('TaskImageDescriptionCtrl', function($scope, $state, $ionicPopup, $ionicHistory) {
 
-$scope.clickedUpload = function(){
+  $scope.clickedUpload = function(){
     // An alert dialog
-   var alertPopup = $ionicPopup.alert({
+    var alertPopup = $ionicPopup.alert({
      title: 'Success',
      template: 'Received your submission'
    });
-   alertPopup.then(function(res) {
+    alertPopup.then(function(res) {
      console.log('Thank you submitting');
    });
     $ionicHistory.goBack(-2);
@@ -106,13 +106,10 @@ $scope.clickedUpload = function(){
     month="0" + month;
   };
   var day=d.getDate();
-  //$scope.ddate=year + "-" + month + "-" + day;
-  var dddate = day+"/"+month+"/"+year;
-  $scope.ddate = dddate;
-  console.log($scope.ddate);
-  $scope.deadline = dddate;
-
+  var date = year + "-" + month + "-" + day;
   $scope.newTask = {};
+  $scope.newTask.deadline = new Date(date);
+  console.log($scope.newTask.deadline, '$scope.newTask.deadline');
 
   $scope.doneCreatingNewTask = function(){
     var task = Tasks.newTask();
